@@ -9,7 +9,10 @@ class Person
     self.partner = person
     person.partner = self
     if Person.class != Person 
+      begin 
       raise PartnerError
+      rescue PartnerError => error 
+        puts error.message 
     else
       Person.partner = self 
     end
